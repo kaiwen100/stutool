@@ -1,0 +1,1 @@
+"C:\software\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e cm-stu-service-6gu9p4hf71bcef00 --n quickstartFunctions --r --project "D:\CodeMan\miniprogram" --report

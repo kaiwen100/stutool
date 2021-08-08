@@ -1,0 +1,21 @@
+.none{
+  display: flex;
+}
+
+.failure{
+  display: flex;
+}
+
+.formaterror{
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+

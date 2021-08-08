@@ -1,0 +1,74 @@
+<view class="page">
+    <view class="page__bd">
+        <mp-searchbar bindselectresult="selectResult" search="{{search}}" placeholder="输入手机号查询" focus="true"></mp-searchbar>
+    </view>
+
+    <view class="page__bd">
+        <view class="none" style="margin-top: 30%;justify-content: center;align-items: center;font-size: 43rpx;color: gray" wx:if="{{noneview}}">请在搜索框输入手机号查询考勤数据</view>
+    </view>
+
+    <view class="page__bd">
+        <view class="formaterror" style="margin-top: 30%;justify-content: center;align-items: center;font-size: 43rpx;color: gray" wx:if="{{formaterrorview}}">抱歉，手机格式错误</view>
+    </view>
+
+    <view class="page__bd">
+        <view class="failure" style="margin-top: 30%;justify-content: center;align-items: center;font-size: 43rpx;color: gray" wx:if="{{failview}}">抱歉，该手机号没有注册</view>
+    </view>
+    <!-- 昵称、报名时间、课程周期、总课次、已上课次数、到课率、缺课次数、请假次数、学点 -->
+    <view class="page__bd">
+        <view class="view_imgs {{showView?'hide':'show'}}">
+            <view class='swiper_con_view' wx:for="{{studentarray}}" wx:key="id">
+                <mp-cells ext-class="my-cells" title="报名信息">
+                    <mp-cell>
+                        <view>昵称</view>
+                        <view slot="footer">{{item.NickName}}</view>
+                    </mp-cell>
+                    <mp-cell>
+                        <view>报名日期</view>
+                        <view slot="footer">{{item.RegisterTime}}</view>
+                    </mp-cell>
+                    <mp-cell>
+                        <view>课程周期</view>
+                        <view slot="footer">{{item.CourseCycle}}</view>
+                    </mp-cell>
+                    <mp-cell>
+                        <view>周期课次</view>
+                        <view slot="footer">{{item.TotalClassNum}}</view>
+                    </mp-cell>
+                </mp-cells>
+
+                <mp-cells ext-class="my-cells" title="考勤统计">
+                    <mp-cell>
+                        <view>到课率</view>
+                        <view slot="footer">{{item.Attendance}}</view>
+                    </mp-cell>
+                    <mp-cell>
+                        <view>学点</view>
+                        <view slot="footer">{{item.LearnSome}}</view>
+                    </mp-cell>
+                </mp-cells>
+
+                <mp-cells  ext-class="my-cells"title="考勤信息">
+                    <mp-cell>
+                        <view>应到课次数</view>
+                        <view slot="footer">{{item.StartedClassNum}}</view>
+                    </mp-cell>
+                    <mp-cell>
+                        <view>有效到课次数</view>
+                        <view slot="footer">{{item.AlreadyClassNum}}</view>
+                    </mp-cell>
+                    <mp-cell>
+                        <view>无效到课次数</view>
+                        <view slot="footer">{{item.MissClassNum}}</view>
+                    </mp-cell>
+                    <mp-cell>
+                        <view>请假次数</view>
+                        <view slot="footer">{{item.LeaveNum}}</view>
+                    </mp-cell>
+                </mp-cells>
+            </view>
+        </view>
+    </view>
+</view>
+
+

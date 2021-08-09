@@ -18,4 +18,29 @@
   display: block;
 }
 
+.top {
+  width: 100%;
+  background-color: #f7f7f7;
+}
+ 
+.topsearch {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  padding: 2% 0;
+  align-items: center;
+}
+
+.frame {
+  background-color: white;
+  width: 75%;
+  border-radius: 20rpx;
+  padding: 0 3%;
+}
+
+.topsearch>text {
+  margin-left: 5%;
+  color: #a8a7a7fa;
+}
+
 

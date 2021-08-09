@@ -1,18 +1,27 @@
+<view class="top">
+    <view class="topsearch">
+        <view class="frame">
+        <input value="{{shoopingtext}}" bindinput="shoppinginput"></input>
+        </view>
+        <text bindtap="search">搜索</text>
+    </view>
+</view>
+
 <view class="page">
     <view class="page__bd">
-        <mp-searchbar bindselectresult="selectResult" search="{{search}}" placeholder="输入手机号查询" focus="true"></mp-searchbar>
+        <view class="none" style="margin-top: 30%;justify-content: center;align-items: center;font-size: 43rpx;color: gray" wx:if="{{noneview}}">
+            请在搜索框输入手机号查询考勤数据
+        </view>
     </view>
 
     <view class="page__bd">
-        <view class="none" style="margin-top: 30%;justify-content: center;align-items: center;font-size: 43rpx;color: gray" wx:if="{{noneview}}">请在搜索框输入手机号查询考勤数据</view>
+        <view class="formaterror" style="margin-top: 30%;justify-content: center;align-items: center;font-size: 43rpx;color: gray" wx:if="{{formaterrorview}}">
+            请输入正确的手机号
+        </view>
     </view>
 
     <view class="page__bd">
-        <view class="formaterror" style="margin-top: 30%;justify-content: center;align-items: center;font-size: 43rpx;color: gray" wx:if="{{formaterrorview}}">抱歉，手机格式错误</view>
-    </view>
-
-    <view class="page__bd">
-        <view class="failure" style="margin-top: 30%;justify-content: center;align-items: center;font-size: 43rpx;color: gray" wx:if="{{failview}}">抱歉，该手机号没有注册</view>
+        <view class="failure" style="margin-top: 30%;justify-content: center;align-items: center;font-size: 43rpx;color: gray" wx:if="{{failview}}">手机号错误，查询不到学员信息</view>
     </view>
     <!-- 昵称、报名时间、课程周期、总课次、已上课次数、到课率、缺课次数、请假次数、学点 -->
     <view class="page__bd">
@@ -31,10 +40,10 @@
                         <view>课程周期</view>
                         <view slot="footer">{{item.CourseCycle}}</view>
                     </mp-cell>
-                    <mp-cell>
+                    <!-- <mp-cell>
                         <view>周期课次</view>
                         <view slot="footer">{{item.TotalClassNum}}</view>
-                    </mp-cell>
+                    </mp-cell> -->
                 </mp-cells>
 
                 <mp-cells ext-class="my-cells" title="考勤统计">

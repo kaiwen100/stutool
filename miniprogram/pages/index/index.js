@@ -11,12 +11,12 @@ Page({
       
   },
   search: function (value) {
-    if (value != "") {
-      console.log("flag:" + (value.length == 11))
-      if (value.length == 11) {
+    var searchtext = this.data.shoopingtext; //搜索框的值
+    if (searchtext != "") {
+      if (searchtext.length == 11) {
         const db = wx.cloud.database();
         db.collection("stutool").where({
-          "Phone": value
+          "Phone": searchtext
         }).get()
         .then(res => {
           if ("" != res.data) {
@@ -46,6 +46,21 @@ Page({
       }
       
     }
+  },
+  //搜索框的值
+  shoppinginput: function(e) {
+    //当删除input的值为空时
+    if (e.detail.value == "") {
+      this.setData({
+        failview: false,
+        noneview: true,
+        formaterrorview : false,
+        showView:(true)
+      });
+    }
+    this.setData({
+      shoopingtext: e.detail.value
+    })
   },
   selectResult: function (e) {
       console.log('select result', e.detail)
